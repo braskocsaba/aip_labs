@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "aip-labs"
+version = "0.1.0"
+description = ""
+authors = ["Brasko Csaba <brasko.csaba@gmail.com>"]
+readme = "README.md"
+packages = [{include = "aip_labs"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.89.1"
+uvicorn = "^0.20.0"
+SQLAlchemy = "^1.4.17"
+sqlmodel = "^0.0.7"
+pytest = "^7.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
