@@ -19,3 +19,5 @@ Fasti api
 SQL model
 SQL alchemy,
 postgress
+
+https://drive.google.com/file/d/1MhSPk3oAerGSHN3H5e1191PpuXx_l_JO/view?usp=sharing
