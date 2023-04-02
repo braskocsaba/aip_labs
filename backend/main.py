@@ -1,7 +1,10 @@
+#third party imports
 from fastapi import FastAPI
 import uvicorn
 
+#local imports
 from handlers.coupon_handler import get_all_coupons, get_coupon, create_coupon
+from db import create_db
 
 app = FastAPI()
 

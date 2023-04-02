@@ -13,6 +13,7 @@ uvicorn = "^0.20.0"
 SQLAlchemy = "^1.4.17"
 sqlmodel = "^0.0.7"
 pytest = "^7.2.1"
+psycopg2-binary = "^2.9.5"
 
 
 [build-system]
