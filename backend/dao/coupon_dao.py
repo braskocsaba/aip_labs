@@ -26,16 +26,16 @@ def get_coupon_from_db(session: Session, coupon_id: int) -> Union[Coupon, None]:
         return None
 
 
-def set_coupon_used_in_db(session: Session, coupon_id: int) -> Union[Coupon, None]:
+def set_coupon_in_db(session: Session, coupon_id: int, coupon: Coupon) -> Union[Coupon, None]:
     try:
         statement = select(Coupon).where(Coupon.id == coupon_id)
-        coupon = session.exec(statement).first()
-        coupon.used = True
+        old_coupon = session.exec(statement).first()
+        old_coupon.used = coupon.used
         session.commit()
         statement = select(Coupon).where(Coupon.id == coupon_id)
-        coupon = session.exec(statement).first()
-        logger.info(f"Succeed set the coupon with id id: {coupon_id} to used")
-        return coupon
+        new_coupon = session.exec(statement).first()
+        logger.info(f"Succeed set the coupon with id id: {coupon_id} to used {coupon.used}")
+        return new_coupon
     except Exception as e:
-        logger.error(f"Failed to set the coupon with id id: {coupon_id} to used, error: {e}")
+        logger.error(f"Failed to set the coupon with id: {coupon_id} to used {coupon.used}, error: {e}")
         return None
