@@ -27,3 +27,4 @@ def set_coupon(coupon_id: int) -> Union[Coupon, None]:
     """
     with session_manager() as session:
         return set_coupon_used_in_db(session, coupon_id)
+

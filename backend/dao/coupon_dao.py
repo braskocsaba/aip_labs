@@ -32,6 +32,8 @@ def set_coupon_used_in_db(session: Session, coupon_id: int) -> Union[Coupon, Non
         coupon = session.exec(statement).first()
         coupon.used = True
         session.commit()
+        statement = select(Coupon).where(Coupon.id == coupon_id)
+        coupon = session.exec(statement).first()
         logger.info(f"Succeed set the coupon with id id: {coupon_id} to used")
         return coupon
     except Exception as e:
