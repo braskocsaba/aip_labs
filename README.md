@@ -20,4 +20,8 @@ SQL model
 SQL alchemy,
 postgress
 
+DB model
 https://drive.google.com/file/d/1MhSPk3oAerGSHN3H5e1191PpuXx_l_JO/view?usp=sharing
+
+Alkalmazas inditas
+docker compose up
