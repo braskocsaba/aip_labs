@@ -29,5 +29,6 @@ def create_db(db_url: str = SQLALCHEMY_DATABASE_URL, create_schema: bool = True)
     print("Creating db...........")
     session = configure_session(db_url, create_schema)
     create_coupons_to_percent_discount_action(session)
+    create_coupons_to_value_discount_action(session)
 
 create_db()
