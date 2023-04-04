@@ -3,6 +3,7 @@ from contextlib import contextmanager
 from config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS
 from sqlmodel import SQLModel, Session, create_engine
 from models import Coupon
+from models import Action
 
 SQLALCHEMY_DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
