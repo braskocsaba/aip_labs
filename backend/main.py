@@ -2,12 +2,11 @@
 from fastapi import FastAPI, status
 import uvicorn
 
-#local imports
 from handlers.coupon_handler import get_all_coupons, get_coupon, set_coupon
 from handlers.action_handler import get_all_actions, get_action
 from typing import List
 from models import Coupon, Action
-from db import create_db
+
 
 app = FastAPI()
 

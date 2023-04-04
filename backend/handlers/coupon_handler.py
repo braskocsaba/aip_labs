@@ -1,6 +1,5 @@
 from db import session_manager
 from models import Coupon
-from sqlmodel import select
 from typing import List, Union
 from dao.coupon_dao import get_all_coupons_from_db, get_coupon_from_db, set_coupon_in_db
 
