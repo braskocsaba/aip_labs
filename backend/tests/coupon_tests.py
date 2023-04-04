@@ -1,12 +1,15 @@
 import pytest
 from models import Coupon
 from dao.coupon_dao import get_all_coupons_from_db, get_coupon_from_db, set_coupon_in_db
+from tests.action_tests import create_percent_discount_action
 
 
 @pytest.fixture()
-def create_coupons(db_session_test):
-    coupon_1 = Coupon(used=False)
-    coupon_2 = Coupon(used=True)
+def create_coupons(db_session_test, create_percent_discount_action):
+    action = create_percent_discount_action
+    id_t = action.id
+    coupon_1 = Coupon(used=False, action_id=action.id)
+    coupon_2 = Coupon(used=True, action_id=action.id)
     db_session_test.add(coupon_1)
     db_session_test.add(coupon_2)
     db_session_test.commit()
@@ -42,3 +45,4 @@ def test_set_coupon_to_used(db_session_test, create_coupons):
     coupon_3, coupon_4 = create_coupons
     assert set_coupon_in_db(db_session_test, coupon_4.id, coupon_3).used
     assert set_coupon_in_db(db_session_test, coupon_3.id, coupon_4).used
+
